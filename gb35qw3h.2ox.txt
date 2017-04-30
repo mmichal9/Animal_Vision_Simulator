@@ -1,0 +1,98 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   .gitignore
+#	new file:   .idea/compiler.xml
+#	new file:   .idea/copyright/profiles_settings.xml
+#	new file:   .idea/gradle.xml
+#	new file:   .idea/misc.xml
+#	new file:   .idea/modules.xml
+#	new file:   .idea/runConfigurations.xml
+#	new file:   app/.gitignore
+#	new file:   app/build.gradle
+#	new file:   app/proguard-rules.pro
+#	new file:   app/src/androidTest/java/com/michal/animalvision/ExampleInstrumentedTest.java
+#	new file:   app/src/main/AndroidManifest.xml
+#	new file:   app/src/main/java/com/michal/animalvision/CameraRenderer.java
+#	new file:   app/src/main/java/com/michal/animalvision/MainActivity.java
+#	new file:   app/src/main/java/com/michal/animalvision/MainActivityVision.java
+#	new file:   app/src/main/java/com/michal/animalvision/MyGLUtils.java
+#	new file:   app/src/main/java/com/michal/animalvision/RenderBuffer.java
+#	new file:   app/src/main/java/com/michal/animalvision/VisionActivity.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/BlackandWhite.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/CameraFilter.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/Deuteranomaly.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/DogVision.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/FishVision.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/HSVtoRGB.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/InsectVision.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/InvertVision.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/OriginalFilter.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/Protanopia.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/Test.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/Thermal.java
+#	new file:   app/src/main/java/com/michal/animalvision/filter/Tritanomaly.java
+#	new file:   app/src/main/res/drawable/eye.png
+#	new file:   app/src/main/res/drawable/eye1.png
+#	new file:   app/src/main/res/drawable/eye10.png
+#	new file:   app/src/main/res/drawable/eye11.png
+#	new file:   app/src/main/res/drawable/eye12.png
+#	new file:   app/src/main/res/drawable/eye13.png
+#	new file:   app/src/main/res/drawable/eye2.png
+#	new file:   app/src/main/res/drawable/eye3.png
+#	new file:   app/src/main/res/drawable/eye4.png
+#	new file:   app/src/main/res/drawable/eye5.png
+#	new file:   app/src/main/res/drawable/eye6.png
+#	new file:   app/src/main/res/drawable/eye7.png
+#	new file:   app/src/main/res/drawable/eye8.png
+#	new file:   app/src/main/res/drawable/eye9.png
+#	new file:   app/src/main/res/layout-land/activity_main.xml
+#	new file:   app/src/main/res/layout/activity_main.xml
+#	new file:   app/src/main/res/layout/activity_vision.xml
+#	new file:   app/src/main/res/layout/main.xml
+#	new file:   app/src/main/res/menu/filter.xml
+#	new file:   app/src/main/res/mipmap-hdpi/ic_launcher.png
+#	new file:   app/src/main/res/mipmap-hdpi/ic_launcher_round.png
+#	new file:   app/src/main/res/mipmap-mdpi/ic_launcher.png
+#	new file:   app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+#	new file:   app/src/main/res/mipmap-xhdpi/ic_launcher.png
+#	new file:   app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
+#	new file:   app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+#	new file:   app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
+#	new file:   app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+#	new file:   app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
+#	new file:   app/src/main/res/raw/blackandwhite.fsh
+#	new file:   app/src/main/res/raw/deuteranomaly.fsh
+#	new file:   app/src/main/res/raw/dogvision.fsh
+#	new file:   app/src/main/res/raw/fishvision.fsh
+#	new file:   app/src/main/res/raw/hsvandrgb.fsh
+#	new file:   app/src/main/res/raw/insectvision.fsh
+#	new file:   app/src/main/res/raw/invert.fsh
+#	new file:   app/src/main/res/raw/original.fsh
+#	new file:   app/src/main/res/raw/original_rtt.fsh
+#	new file:   app/src/main/res/raw/protanopia.fsh
+#	new file:   app/src/main/res/raw/test.fsh
+#	new file:   app/src/main/res/raw/test2.fsh
+#	new file:   app/src/main/res/raw/thermal.fsh
+#	new file:   app/src/main/res/raw/tritanomaly.fsh
+#	new file:   app/src/main/res/raw/vertext.vsh
+#	new file:   app/src/main/res/raw/voronoi.fsh
+#	new file:   app/src/main/res/raw/voronoi_buf_a.fsh
+#	new file:   app/src/main/res/raw/voronoi_buf_b.fsh
+#	new file:   app/src/main/res/raw/voronoi_buf_c.fsh
+#	new file:   app/src/main/res/values-w820dp/dimens.xml
+#	new file:   app/src/main/res/values/colors.xml
+#	new file:   app/src/main/res/values/strings.xml
+#	new file:   app/src/main/res/values/styles.xml
+#	new file:   app/src/test/java/com/michal/animalvision/ExampleUnitTest.java
+#	new file:   gradle/wrapper/gradle-wrapper.jar
+#	new file:   gradle/wrapper/gradle-wrapper.properties
+#
+# Changes not staged for commit:
+#	modified:   gradlew
+#
+

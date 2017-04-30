@@ -8,6 +8,10 @@ uniform sampler2D           iChannel0;
 varying vec2                texCoord;
 
 
+const float amount = 80.0;
+const vec2 start_pos = vec2(-0.25, -0.25); // -1.0 to 1.0 for x, y
+
+
 vec4 blackwhite(in vec4 col){
 
     vec3 c_r = vec3(0.3, 0.6, 0.1);
@@ -18,24 +22,34 @@ vec4 blackwhite(in vec4 col){
     return vec4(rgb, 1.);
 }
 
+vec3 deform( in vec2 p )
+{
+    vec2 uv;
+    uv.x = sin( 0.0 + 1.0 ) + p.x;
+    uv.y = sin( 0.0 + 1.0 ) + p.y;
+    return texture2D( iChannel0, uv * 0.5 ).xyz;
+}
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-    vec4 tex1Color = texture2D(iChannel0, fragCoord.xy / iResolution.xy);
+    vec2 position = -1.0 + 2.0 * fragCoord.xy / iResolution.xy;
+    vec2 current_step = position;
 
-    const int kSize = 7;
-    vec3 avg = vec3(0.0);
-    for (int i=-kSize; i <= kSize; ++i) {
-        for (int j = -kSize; j <= kSize; ++j) {
-            avg = avg + texture2D(iChannel0, (fragCoord.xy + vec2(float(i), float(j)))/iResolution.xy).xyz;
-        }
+    vec2 direction = ( start_pos - position ) / amount;
+
+    vec3 total = vec3( 0.0 );
+    for( int i = 0; i < int( amount ); i++ )
+    {
+        vec3 result = deform( current_step );
+        result = smoothstep( 0.0, 1.0, result );
+        total += result;
+        current_step += direction;
     }
-    int area = (2*kSize + 1) * (2*kSize + 1);
-    avg = avg.xyz/vec3(area); //interestingly divider is not x^2 but x^3. since the area of a box is x^2..
 
-    vec4 col = vec4(avg, tex1Color.a);
+    total /= amount;
+	vec4 color = vec4( total, 1.0 );
 
-	fragColor =  blackwhite(col);
+    fragColor = blackwhite(color);
 }
 
 void main() {

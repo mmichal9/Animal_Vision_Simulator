@@ -1,8 +1,8 @@
-#ifdef GL_SL
+#extension GL_OES_standard_derivatives : enable
 precision mediump float;
-#endif
 
 uniform vec3                iResolution;
+uniform vec3                iChannelResolution;
 uniform float               iGlobalTime;
 uniform sampler2D           iChannel0;
 varying vec2                texCoord;

@@ -55,12 +55,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     float minVal = 0.0001;
     float maxVal = 0.1500;
 
-    if(t < 1.0 ){
-        minVal = minVal + t;
-    	maxVal = maxVal + t;}
-    else{
-        minVal = minVal - t;
-    	maxVal = maxVal - t;}
+    minVal = minVal + t;
+    maxVal = maxVal + t;
+
 
     float variable = newRGB.r;
     float range = clamp(variable, minVal, maxVal);
@@ -74,6 +71,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 	fragColor = vec4(newRGB,1.0);
 }
+
 
 void main() {
     mainImage(gl_FragColor, texCoord.xy*iResolution.xy);

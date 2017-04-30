@@ -1,8 +1,8 @@
-#ifdef GL_SL
+#extension GL_OES_standard_derivatives : enable
 precision mediump float;
-#endif
 
 uniform vec3                iResolution;
+uniform vec3                iChannelResolution;
 uniform float               iGlobalTime;
 uniform sampler2D           iChannel0;
 varying vec2                texCoord;
@@ -13,7 +13,7 @@ varying vec2                texCoord;
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 {
-    vec2 uv = fragCoord.xy;
+	vec2 uv = fragCoord.xy / iResolution.xy;
 	vec4 col = texture2D( iChannel0, uv );
 
     //Dog Vision
@@ -27,5 +27,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 }
 
 void main() {
-	mainImage(gl_FragColor, texCoord);
+    mainImage(gl_FragColor, texCoord.xy*iResolution.xy);
 }

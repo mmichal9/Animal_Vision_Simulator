@@ -1,5 +1,8 @@
-precision highp float;
+#extension GL_OES_standard_derivatives : enable
+precision mediump float;
 
+
+uniform vec3                iChannelResolution;
 uniform vec3                iResolution;
 uniform float               iGlobalTime;
 uniform sampler2D           iChannel0;
