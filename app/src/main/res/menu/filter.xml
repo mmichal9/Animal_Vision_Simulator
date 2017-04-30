@@ -1,0 +1,180 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+
+    <item
+        android:id="@+id/filter0"
+        android:title="Original"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter1"
+        android:title="Black and White"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter2"
+        android:title="Dog Vision"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter3"
+        android:title="Fish Vision"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter4"
+        android:title="HSV to RGB"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter5"
+        android:title="Insect Vision"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter6"
+        android:title="InvertVision"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter7"
+        android:title="Test"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter8"
+        android:title="Thermal"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter9"
+        android:title="Deuteranomaly"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter10"
+        android:title="Deuteranopia"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/filter11"
+        android:title="Protanomaly"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter12"
+        android:title="Protanopia"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter13"
+        android:title="Tritanomaly"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter14"
+        android:title="Tritanopia"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter15"
+        android:title="Achromatomaly"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter16"
+        android:title="Achromatospia"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter17"
+        android:title="Dog VR Beta"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter18"
+        android:title="Snail"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter19"
+        android:title="Shark"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter20"
+        android:title="Cat"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter21"
+        android:title="Bird"
+        app:showAsAction="never"
+    />
+    <item
+        android:id="@+id/filter22"
+        android:title="Bee"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter23"
+        android:title="Clam"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter24"
+        android:title="Gecko"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter25"
+        android:title="Cuttlefish"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter26"
+        android:title="Jumping Spider"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter27"
+        android:title="Bear"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter28"
+        android:title="Ape"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter29"
+        android:title="Horse"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter30"
+        android:title="Octopus"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter31"
+        android:title="Dolphin"
+        app:showAsAction="never"
+        />
+
+
+</menu>
