@@ -35,11 +35,6 @@
         app:showAsAction="never"
         />
 
-    <item
-        android:id="@+id/filter5"
-        android:title="Insect Vision"
-        app:showAsAction="never"
-        />
 
     <item
         android:id="@+id/filter6"
@@ -47,11 +42,6 @@
         app:showAsAction="never"
         />
 
-    <item
-        android:id="@+id/filter7"
-        android:title="Test"
-        app:showAsAction="never"
-        />
 
     <item
         android:id="@+id/filter8"
@@ -100,11 +90,7 @@
         android:title="Achromatospia"
         app:showAsAction="never"
         />
-    <item
-        android:id="@+id/filter17"
-        android:title="Dog VR Beta"
-        app:showAsAction="never"
-        />
+
     <item
         android:id="@+id/filter18"
         android:title="Snail"
@@ -124,7 +110,7 @@
         android:id="@+id/filter21"
         android:title="Bird"
         app:showAsAction="never"
-    />
+        />
     <item
         android:id="@+id/filter22"
         android:title="Bee"
@@ -157,7 +143,7 @@
         />
     <item
         android:id="@+id/filter28"
-        android:title="Ape"
+        android:title="Dragonfly"
         app:showAsAction="never"
         />
     <item
@@ -170,11 +156,27 @@
         android:title="Octopus"
         app:showAsAction="never"
         />
+
+
     <item
         android:id="@+id/filter31"
         android:title="Dolphin"
         app:showAsAction="never"
         />
-
+    <item
+        android:id="@+id/filter32"
+        android:title="Sepia"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter33"
+        android:title="Polaroid"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/filter34"
+        android:title="Hue Shift"
+        app:showAsAction="never"
+        />
 
 </menu>

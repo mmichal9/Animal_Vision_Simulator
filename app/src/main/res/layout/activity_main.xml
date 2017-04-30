@@ -342,7 +342,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/apeVisionBtn"
+                            android:id="@+id/dragonflyVisionBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -748,7 +748,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/dog_VRBtn"
+                            android:id="@+id/sepiaBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -769,7 +769,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="Dog VR Beta"
+                                android:text="Sepia"
                                 android:textSize="11sp" />
 
                         </LinearLayout>
@@ -803,7 +803,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/insectVision"
+                            android:id="@+id/HueShiftBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -826,7 +826,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="Insect Vision"
+                                android:text="Hue Shift 180"
                                 android:textSize="11sp" />
 
                         </LinearLayout>
@@ -920,7 +920,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/testVisionBtn"
+                            android:id="@+id/PolaroidBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -941,7 +941,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="Test"
+                                android:text="Polaroid"
                                 android:textSize="11sp" />
 
                         </LinearLayout>
