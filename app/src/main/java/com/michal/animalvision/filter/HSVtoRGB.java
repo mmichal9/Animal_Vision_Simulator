@@ -20,7 +20,7 @@ public class HSVtoRGB extends CameraFilter {
         super(context);
 
         // Build shaders
-        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.hsvandrgb);
+        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.f_hsvandrgb);
     }
 
     @Override

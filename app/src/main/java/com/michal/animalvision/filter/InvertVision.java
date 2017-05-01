@@ -20,7 +20,7 @@ public class InvertVision extends CameraFilter {
         super(context);
 
         // Build shaders
-        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.invert);
+        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.f_invert);
     }
 
     @Override

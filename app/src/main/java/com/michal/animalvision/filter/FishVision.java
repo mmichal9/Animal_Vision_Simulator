@@ -20,7 +20,7 @@ public class FishVision extends CameraFilter {
         super(context);
 
         // Build shaders
-        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.fishvision);
+        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.f_fishvision);
     }
 
     @Override

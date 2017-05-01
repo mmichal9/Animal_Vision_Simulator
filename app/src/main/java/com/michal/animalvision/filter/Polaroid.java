@@ -13,14 +13,14 @@ import com.michal.animalvision.R;
  * Created by Michal on 06/03/2017.
  */
 
-public class Ape extends CameraFilter {
+public class Polaroid extends CameraFilter {
     private int program;
 
-    public Ape(Context context) {
+    public Polaroid(Context context) {
         super(context);
 
         // Build shaders
-        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.bird);
+        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.f_polaroid);
     }
 
     @Override

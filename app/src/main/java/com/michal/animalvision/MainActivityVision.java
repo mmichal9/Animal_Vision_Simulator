@@ -27,6 +27,9 @@ public class MainActivityVision extends AppCompatActivity {
     private CameraRenderer renderer;
     private TextureView textureView;
     private int filterId = R.id.filter0;
+    //keep camera variable static, otherwise application will not be able to swap the cameras
+    static private String camera = "Back";
+    private String visionTitle;
 
     public int filterCase(String VisionTitle) {
         int filter = 0;
@@ -41,21 +44,23 @@ public class MainActivityVision extends AppCompatActivity {
             case "HSV to RGB":
                 filter = R.id.filter4;
                 break;
-            case "Insect Vision":
-                filter = R.id.filter5;
-                break;
             case "Invert Vision":
                 filter = R.id.filter6;
                 break;
             case "Original Vision":
                 filter = R.id.filter0;
                 break;
-            case "Test Vision":
-                filter = R.id.filter7;
+
+            case "Sepia":
+                filter = R.id.filter32;
                 break;
-            case "VR Dog Vision":
-                filter = R.id.filter17;
+            case "Polaroid":
+                filter = R.id.filter33;
                 break;
+            case "Hue Shift":
+                filter = R.id.filter34;
+                break;
+
 
 
             case "Color Blindness - Deuteranomaly":
@@ -143,14 +148,15 @@ public class MainActivityVision extends AppCompatActivity {
         setContentView(R.layout.main);
 
 
-        String VisionTitle = getIntent().getStringExtra(MainActivity.EXTRA_ITEM_TITLE);
+        visionTitle = getIntent().getStringExtra(MainActivity.EXTRA_ITEM_TITLE);
 
-        filterId = filterCase(VisionTitle);
+        filterId = filterCase(visionTitle);
 
         textureView = (TextureView) findViewById(R.id.textureView);
         ImageButton catchBtn = (ImageButton) findViewById(R.id.catchBtn);
         ImageButton otherBtn = (ImageButton) findViewById(R.id.otherBtn);
         ImageButton pageBtn = (ImageButton) findViewById(R.id.pageBtn);
+        ImageButton backBtn = (ImageButton) findViewById(R.id.backBtn);
 
         catchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,9 +182,136 @@ public class MainActivityVision extends AppCompatActivity {
 
         });
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+
+        });
+
+
+
         setupCameraPreviewView();
     }
 
+    void setupCameraPreviewView() {
+        renderer = new CameraRenderer(this);
+        renderer.setCameraOrient(camera);
+        Log.d("test",renderer.getCameraOrient());
+        assert textureView != null;
+
+        switch (renderer.getCameraOrient()) {
+            case "Front":
+                textureView.setScaleX(-1.0f);
+                textureView.setRotation(180.0f);
+                break;
+
+            case "Back":
+                textureView.setRotation(0.0f);
+                break;
+        }
+
+
+        textureView.setSurfaceTextureListener(renderer);
+
+
+        renderer.setSelectedFilter(filterId);
+
+
+        textureView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                renderer.onSurfaceTextureSizeChanged(null, v.getWidth(), v.getHeight());
+            }
+        });
+    }
+
+    private void swapcamera() {
+        switch (renderer.getCameraOrient()) {
+            case "Front":
+                textureView.setRotation(180.0f);
+                camera="Back";
+                this.recreate();
+                break;
+
+            case "Back":
+                camera="Front";
+                this.recreate();
+                break;
+        }
+    }
+    private boolean capture() {
+
+        Bitmap bitmap = textureView.getBitmap();
+        ImageSaver imageSaver = new ImageSaver(getApplicationContext());
+        imageSaver.setExternal(true);
+        imageSaver.setFileName(System.currentTimeMillis() + "AV.jpg");
+        if (isStoragePermissionGranted()) {
+            imageSaver.save(bitmap);
+        }
+
+        return true;
+
+    }
+    public boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+
+                return true;
+            } else {
+
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            return true;
+        }
+    }
+
+    private boolean loadpage() {
+
+        String VisionTitle = getIntent().getStringExtra(MainActivity.EXTRA_ITEM_TITLE);
+
+        String page = new String("http://mmichal.com/pages/Animal_resources_m.html");
+        String loadPage = page + VisionTitle;
+
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(loadPage));
+
+        String sub = VisionTitle.substring(0, 1);
+
+        if (sub.equals("#")) {
+            startActivity(i);
+            //Toast.makeText(this, loadPage, Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(this, VisionTitle, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, sub, Toast.LENGTH_SHORT).show();
+        }
+
+        //toast text test
+        //Toast.makeText(this, "page loading.", Toast.LENGTH_SHORT).show();
+
+        return true;
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.filter, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        filterId = item.getItemId();
+        setTitle(item.getTitle());
+
+        if (renderer != null)
+            renderer.setSelectedFilter(filterId);
+
+        return true;
+    }
 
 //        RequestPermission moved to the main activity to avoid app restart after permission granting!!!!!!!!!!!!!!!!
 //
@@ -209,141 +342,5 @@ public class MainActivityVision extends AppCompatActivity {
 //            }
 //        }
 //    }
-
-    void setupCameraPreviewView() {
-        renderer = new CameraRenderer(this);
-
-
-        assert textureView != null;
-
-        textureView.setSurfaceTextureListener(renderer);
-
-        // Show original frame when touch the view
-        renderer.setSelectedFilter(filterId);
-
-
-        textureView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                renderer.onSurfaceTextureSizeChanged(null, v.getWidth(), v.getHeight());
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.filter, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        filterId = item.getItemId();
-        setTitle(item.getTitle());
-
-        if (renderer != null)
-            renderer.setSelectedFilter(filterId);
-
-        return true;
-    }
-
-    private boolean capture() {
-
-        Bitmap bitmap = textureView.getBitmap();
-        ImageSaver imageSaver = new ImageSaver(getApplicationContext());
-        imageSaver.setExternal(true);
-        imageSaver.setFileName(System.currentTimeMillis() + "image.jpg");
-        if (isStoragePermissionGranted()) {
-            imageSaver.save(bitmap);
-        }
-
-        return true;
-
-    }
-
-    public boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
-
-                return true;
-            } else {
-
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                return false;
-            }
-        } else { //permission is automatically granted on sdk<23 upon installation
-            return true;
-        }
-    }
-
-    private String genSaveFileName(String prefix, String suffix) {
-        Date date = new Date();
-        SimpleDateFormat dateformat1 = new SimpleDateFormat("yyyyMMdd_hhmmss");
-        String timeString = dateformat1.format(date);
-        String externalPath = Environment.getExternalStorageDirectory().toString();
-        return externalPath + "/" + prefix + timeString + suffix;
-    }
-
-
-    private boolean swapcamera() {
-        switch (renderer.getCameraOrient()) {
-            case "Front":
-                Log.d("test","test");
-                renderer.setCameraOrient("Back");
-                textureView.setSurfaceTextureListener(renderer);
-
-                break;
-
-            case "Back":
-
-                renderer.setCameraOrient("Front");
-                textureView.setSurfaceTextureListener(renderer);
-
-
-                break;
-
-        }
-
-
-        textureView.setSurfaceTextureListener(renderer);
-
-
-        // Show original frame when touch the view
-        renderer.setSelectedFilter(filterId);
-
-
-        return true;
-
-    }
-
-
-    private boolean loadpage() {
-
-        String VisionTitle = getIntent().getStringExtra(MainActivity.EXTRA_ITEM_TITLE);
-
-        String page = new String("http://mmichal.com/pages/Animal_resources_m.html");
-        String loadPage = page + VisionTitle;
-
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(loadPage));
-
-        String sub = VisionTitle.substring(0, 1);
-
-        if (sub.equals("#")) {
-            startActivity(i);
-            //Toast.makeText(this, loadPage, Toast.LENGTH_SHORT).show();
-
-        } else {
-            Toast.makeText(this, VisionTitle, Toast.LENGTH_SHORT).show();
-            //Toast.makeText(this, sub, Toast.LENGTH_SHORT).show();
-        }
-
-        //toast text test
-        //Toast.makeText(this, "page loading.", Toast.LENGTH_SHORT).show();
-
-        return true;
-
-    }
-
 
 }

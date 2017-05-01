@@ -14,8 +14,8 @@ import java.io.IOException;
 
 public class ImageSaver {
 
-    private String directoryName = "images";
-    private String fileName = "image.png";
+    private String directoryName = "Animal_Vision";
+    private String fileName = "AV.png";
     private Context context;
     private boolean external;
 

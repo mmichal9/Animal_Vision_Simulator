@@ -38,7 +38,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 
-import com.michal.animalvision.filter.Ape;
+import com.michal.animalvision.filter.Dragonfly;
 import com.michal.animalvision.filter.Bear;
 import com.michal.animalvision.filter.Bee;
 import com.michal.animalvision.filter.Bird;
@@ -59,18 +59,19 @@ import com.michal.animalvision.filter.FishVision;
 import com.michal.animalvision.filter.Gecko;
 import com.michal.animalvision.filter.HSVtoRGB;
 import com.michal.animalvision.filter.Horse;
+import com.michal.animalvision.filter.HueShift;
 import com.michal.animalvision.filter.InsectVision;
 import com.michal.animalvision.filter.InvertVision;
 import com.michal.animalvision.filter.JumpingSpider;
 import com.michal.animalvision.filter.Octopus;
 import com.michal.animalvision.filter.OriginalFilter;
 import com.michal.animalvision.filter.Cb_Protanopia;
+import com.michal.animalvision.filter.Polaroid;
+import com.michal.animalvision.filter.Sepia;
 import com.michal.animalvision.filter.Shark;
 import com.michal.animalvision.filter.Snail;
-import com.michal.animalvision.filter.Test;
 import com.michal.animalvision.filter.Thermal;
 import com.michal.animalvision.filter.Cb_Tritanomaly;
-import com.michal.animalvision.filter.VR_DogVision;
 
 /**
  * Created by Michal on 06/03/2017.
@@ -109,31 +110,6 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
 
     public void setCameraOrient(String cameraOrient) {
         this.cameraOrient = cameraOrient;
-
-        if (camera != null) {
-            camera.stopPreview();
-            camera.release();
-        }
-        if (renderThread != null && renderThread.isAlive()) {
-            renderThread.interrupt();
-        }
-
-        renderThread = new Thread(this);
-        //Open camera
-        if(cameraOrient.equals("Back")){
-            Pair<Camera.CameraInfo, Integer> camerainfo = getBackCamera();
-            final int CameraId = camerainfo.second;
-            camera = Camera.open(CameraId);
-        }
-        if(cameraOrient.equals("Front")){
-            Pair<Camera.CameraInfo, Integer> camerainfo = getFrontCamera();
-            final int CameraId = camerainfo.second;
-            camera = Camera.open(CameraId);
-        }
-
-        // Start rendering
-        renderThread.start();
-
     }
 
     public String getCameraOrient() {
@@ -142,9 +118,6 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
 
     @Override
     public void onSurfaceTextureUpdated(SurfaceTexture surface) {
-
-
-
 
     }
 
@@ -252,10 +225,11 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         cameraFilterMap.append(R.id.filter1, new BlackandWhite(context));
         cameraFilterMap.append(R.id.filter3, new FishVision(context));
         cameraFilterMap.append(R.id.filter4, new HSVtoRGB(context));
-        cameraFilterMap.append(R.id.filter5, new InsectVision(context));
         cameraFilterMap.append(R.id.filter6, new InvertVision(context));
-        cameraFilterMap.append(R.id.filter7, new Test(context));
-        cameraFilterMap.append(R.id.filter17, new VR_DogVision(context));
+
+        cameraFilterMap.append(R.id.filter32, new Sepia(context));
+        cameraFilterMap.append(R.id.filter33, new Polaroid(context));
+        cameraFilterMap.append(R.id.filter34, new HueShift(context));
 
         cameraFilterMap.append(R.id.filter9, new Cb_Deuteranomaly(context));
         cameraFilterMap.append(R.id.filter10, new Cb_Deuteranopia(context));
@@ -278,7 +252,7 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         cameraFilterMap.append(R.id.filter25, new Cuttlefish(context));
         cameraFilterMap.append(R.id.filter26, new JumpingSpider(context));
         cameraFilterMap.append(R.id.filter27, new Bear(context));
-        cameraFilterMap.append(R.id.filter28, new Ape(context));
+        cameraFilterMap.append(R.id.filter28, new Dragonfly(context));
         cameraFilterMap.append(R.id.filter29, new Horse(context));
         cameraFilterMap.append(R.id.filter30, new Octopus(context));
         cameraFilterMap.append(R.id.filter31, new Dolphin(context));
@@ -292,12 +266,15 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         // Start camera preview
         try {
 
-
             camera.setPreviewTexture(cameraSurfaceTexture);
+            switch (cameraOrient) {
+                case "Back":
+                    Camera.Parameters params = camera.getParameters();
+                    params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+                    camera.setParameters(params);
+                    break;
+            }
 
-            Camera.Parameters params = camera.getParameters();
-            params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
-            camera.setParameters(params);
 
 
             camera.startPreview();

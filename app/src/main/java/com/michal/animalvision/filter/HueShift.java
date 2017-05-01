@@ -13,14 +13,14 @@ import com.michal.animalvision.R;
  * Created by Michal on 06/03/2017.
  */
 
-public class Dolphin extends CameraFilter {
+public class HueShift extends CameraFilter {
     private int program;
 
-    public Dolphin(Context context) {
+    public HueShift(Context context) {
         super(context);
 
         // Build shaders
-        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.dolphin);
+        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.f_hueshift);
     }
 
     @Override

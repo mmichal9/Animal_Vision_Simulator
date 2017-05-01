@@ -13,14 +13,14 @@ import com.michal.animalvision.R;
  * Created by Michal on 06/03/2017.
  */
 
-public class Dolphin extends CameraFilter {
+public class Sepia extends CameraFilter {
     private int program;
 
-    public Dolphin(Context context) {
+    public Sepia(Context context) {
         super(context);
 
         // Build shaders
-        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.dolphin);
+        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.f_sepia);
     }
 
     @Override

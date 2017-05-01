@@ -15,19 +15,23 @@ import com.michal.animalvision.R;
 
 public class Clam extends CameraFilter {
     private int program;
+    private int texture2Id;
 
     public Clam(Context context) {
         super(context);
 
         // Build shaders
-        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.bird);
+        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.mapping);
+
+        // Load the texture will need for the shader
+        texture2Id = MyGLUtils.loadTexture(context, R.raw.clam4, new int[2]);
     }
 
     @Override
     public void onDraw(int cameraTexId, int canvasWidth, int canvasHeight) {
         setupShaderInputs(program,
                 new int[]{canvasWidth, canvasHeight},
-                new int[]{cameraTexId},
+                new int[]{cameraTexId, texture2Id},
                 new int[][]{});
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
     }

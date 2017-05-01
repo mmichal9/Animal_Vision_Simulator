@@ -40,11 +40,12 @@ public class MainActivity extends AppCompatActivity {
     public static final String BLACK_AND_WHITE = "Black and White";
     public static final String FISH_VISION = "Fish Vision";
     public static final String HSV_TO_RGB = "HSV to RGB";
-    public static final String INSECT_VISION = "Insect Vision";
     public static final String INVERT_VISION = "Invert Vision";
     public static final String ORIGINAL_VISION = "Original Vision";
-    public static final String TEST_VISION = "Test Vision";
-    public static final String VR_DOG_VISION = "VR Dog Vision";
+
+    public static final String SEPIA = "Sepia";
+    public static final String POLAROID = "Polaroid";
+    public static final String HUESHIFT = "Hue Shift";
 
 
     public static final String THERMAL_VISION = "#text-separator-snake";
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String SHARK_VISION = "#text-separator-shark";
     public static final String BEAR_VISION = "#text-separator-bear";
-    public static final String APE_VISION = "#text-separator-ape";
+    public static final String DRAGONFLY_VISION = "#text-separator-ape";
     public static final String HORSE_VISION = "#text-separator-horse";
     public static final String OCTOPUS_VISION = "#text-separator-octopus";
     public static final String DOLPHIN_VISION = "#text-separator-dolphin";
@@ -103,12 +104,15 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout dogVisionBtn = (LinearLayout) findViewById(R.id.dogVisionBtn);
         LinearLayout fishVisionBtn = (LinearLayout) findViewById(R.id.fishVisionBtn);
         LinearLayout hsvtorgbBtn = (LinearLayout) findViewById(R.id.hsvtorgbBtn);
-        LinearLayout insectVisionBtn = (LinearLayout) findViewById(R.id.insectVision);
         LinearLayout invertVisionBtn = (LinearLayout) findViewById(R.id.invertVisionBtn);
         LinearLayout originalVisionBtn = (LinearLayout) findViewById(R.id.originalBtn);
-        LinearLayout testVisionBtn = (LinearLayout) findViewById(R.id.testVisionBtn);
         LinearLayout thermalVisionBtn = (LinearLayout) findViewById(R.id.thermalVisionBtn);
-        LinearLayout dog_VRBtn = (LinearLayout) findViewById(R.id.dog_VRBtn);
+
+        LinearLayout sepiaBtn = (LinearLayout) findViewById(R.id.sepiaBtn);
+        LinearLayout polaroidBtn = (LinearLayout) findViewById(R.id.PolaroidBtn);
+        LinearLayout hueShiftBtn = (LinearLayout) findViewById(R.id.HueShiftBtn);
+
+
         LinearLayout snailBtn = (LinearLayout) findViewById(R.id.snailVisionBtn);
         LinearLayout sharkVisionBtn = (LinearLayout) findViewById(R.id.sharkVisionBtn);
         LinearLayout catVisionBtn = (LinearLayout) findViewById(R.id.catVisionBtn);
@@ -119,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout cuttlefishVisionBtn = (LinearLayout) findViewById(R.id.cuttlefishVisionBtn);
         LinearLayout jumpingSpiderVisionBtn = (LinearLayout) findViewById(R.id.jumpingSpiderVisionBtn);
         LinearLayout bearVisionBtn = (LinearLayout) findViewById(R.id.bearVisionBtn);
-        LinearLayout apeVisionBtn = (LinearLayout) findViewById(R.id.apeVisionBtn);
+        LinearLayout dragonflyVisionBtn = (LinearLayout) findViewById(R.id.dragonflyVisionBtn);
         LinearLayout horseVisionBtn = (LinearLayout) findViewById(R.id.horseVisionBtn);
         LinearLayout octopusVisionBtn = (LinearLayout) findViewById(R.id.octopusVisionBtn);
         LinearLayout dolphinVisionBtn = (LinearLayout) findViewById(R.id.dolphinVisionBtn);
@@ -160,12 +164,6 @@ public class MainActivity extends AppCompatActivity {
                 loadVisionActivity(MainActivity.HSV_TO_RGB);
             }
         });
-        insectVisionBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadVisionActivity(MainActivity.INSECT_VISION);
-            }
-        });
         invertVisionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,22 +176,10 @@ public class MainActivity extends AppCompatActivity {
                 loadVisionActivity(MainActivity.ORIGINAL_VISION);
             }
         });
-        testVisionBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadVisionActivity(MainActivity.TEST_VISION);
-            }
-        });
         thermalVisionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadVisionActivity(MainActivity.THERMAL_VISION);
-            }
-        });
-        dog_VRBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadVisionActivity(MainActivity.VR_DOG_VISION);
             }
         });
         snailBtn.setOnClickListener(new View.OnClickListener() {
@@ -256,10 +242,10 @@ public class MainActivity extends AppCompatActivity {
                 loadVisionActivity(MainActivity.BEAR_VISION);
             }
         });
-        apeVisionBtn.setOnClickListener(new View.OnClickListener() {
+        dragonflyVisionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadVisionActivity(MainActivity.APE_VISION);
+                loadVisionActivity(MainActivity.DRAGONFLY_VISION);
             }
         });
         horseVisionBtn.setOnClickListener(new View.OnClickListener() {
@@ -317,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loadVisionActivity(MainActivity.TRITANOMALY);
             }
-    });
+        });
         achromatosopiaBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -328,6 +314,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadVisionActivity(MainActivity.ACHROMATOMALY);
+            }
+        });
+
+        polaroidBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadVisionActivity(MainActivity.POLAROID);
+            }
+        });
+        sepiaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadVisionActivity(MainActivity.SEPIA);
+            }
+        });
+        hueShiftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadVisionActivity(MainActivity.HUESHIFT);
             }
         });
 

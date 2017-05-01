@@ -20,7 +20,7 @@ public class Cuttlefish extends CameraFilter {
         super(context);
 
         // Build shaders
-        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.bird);
+        program = MyGLUtils.buildProgram(context, R.raw.vertext, R.raw.cuttlefish);
     }
 
     @Override
