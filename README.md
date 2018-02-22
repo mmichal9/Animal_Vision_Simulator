@@ -25,9 +25,12 @@ Visit **[Animal Vision Simulator](http://mmichal.com/pages/Animal_resources.html
 
 Some of the implemented filters:
 
-|  |  |  |  |
-|:-:|:-:|:-:|:-:|
-| ![a](art/Bird_2.png) | ![a](art/Dragonfly_2.png) | ![a](art/Cuttlefish_2.png) | ![a](art/Octopuc_2.gif) |
-| [Bird](https://www.shadertoy.com/) | [Dragonfly](https://www.shadertoy.com/) | [Cuttlefish](https://www.shadertoy.com/) | [Octopuc](https://www.shadertoy.com/) |
-| ![a](art/Clam_2.png) | ![a](art/Dog_2.png) | ![a](art/Rattlesnake_2.png) | ![a](art/Spider_2.png) |
-| [Clam](https://www.shadertoy.com/) | [Dog](https://www.shadertoy.com/) | [Rattlesnake](https://www.shadertoy.com/) | [Spider](https://www.shadertoy.com/) |
+|  |  |  |
+|:-:|:-:|:-:|
+| ![a](art/Bird_2.png) | ![a](art/Dragonfly_2.png) | ![a](art/Cuttlefish_2.png) |
+| [Bird](https://www.shadertoy.com/) | [Dragonfly](https://www.shadertoy.com/) | [Cuttlefish](https://www.shadertoy.com/) |
+| ![a](art/Clam_2.png) | ![a](art/Dog_2.png) | ![a](art/Rattlesnake_2.png) | 
+| [Clam](https://www.shadertoy.com/) | [Dog](https://www.shadertoy.com/) | [Rattlesnake](https://www.shadertoy.com/) |
+|![a](art/Spider_2.png) |![a](art/Octopuc_2.gif) |![a](art/Snail_2.gif) |
+|[Spider](https://www.shadertoy.com/) | [Octopuc](https://www.shadertoy.com/) | [Snail](https://www.shadertoy.com/) |
+
