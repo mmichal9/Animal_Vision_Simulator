@@ -38,5 +38,5 @@ Some of the implemented filters:
 
 # How to Install
 
-**[Download](https://github.com/mmichal9/Animal_Vision_Simulator/tree/master/apk/Animal_Vision_Simulator.apk) the application .apk file to your android device and tap to install it. 
+[Download](https://github.com/mmichal9/Animal_Vision_Simulator/tree/master/apk/Animal_Vision_Simulator.apk) the application .apk file to your android device and tap to install it. 
 In case of any problems follow **[this (How to Install APK Files on Android)](https://www.wikihow.tech/Install-APK-Files-on-Android) instruciotn steps.
