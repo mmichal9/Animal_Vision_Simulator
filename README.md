@@ -34,3 +34,9 @@ Some of the implemented filters:
 |![a](art/Spider_2.png) |![a](art/Octopuc_2.gif) |![a](art/Snail_2.png) |
 |[Spider](https://www.shadertoy.com/) | [Octopuc](https://www.shadertoy.com/) | [Snail](https://www.shadertoy.com/) |
 
+
+
+# How to Install
+
+**[Download](https://github.com/mmichal9/Animal_Vision_Simulator/tree/master/apk/Animal_Vision_Simulator.apk) the application .apk file to your android device and tap to install it. 
+In case of any problems follow **[this (How to Install APK Files on Android)](https://www.wikihow.tech/Install-APK-Files-on-Android) instruciotn steps.
