@@ -16,11 +16,11 @@ The idea behind Animal Vision Simulator is to create a user-friendly, robust and
 Application is strongly based on the **[CameraFilter](https://github.com/nekocode/CameraFilter)** project. 
 
 # Animal Vision
-<div style="text-align: right">
+
 Over a century ago, J. Lubbock and K. von Frisch discovered that some of the animals can see colours. Since then, major steps have been done to understand animal visual system anatomy and colour perception 
 The idea about Animal Vision Research web page came with the realisation that some of the animals have such an extraordinary sense of vision that is simply impossible to completely simulate it, even when cutting-edge technology applied. The best example of an animal with such an extraordinary sense of vision is a bee. A bee has compound eyes with an ability to see ultraviolet light. It is simply impossible to fully understand the perception of this colour, since humans are not able to perceive ultraviolet light. Animal Vision Research web page focuses on chosen animals from the perspective of their visual perception.
 Visit **[Animal Vision Simulator](http://mmichal.com/pages/Animal_resources.html)** to reed more about Animal Vision.
-</div>
+
 # Filters
 
 Some of the implemented filters:
